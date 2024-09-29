@@ -21,6 +21,7 @@ Welcome to my collection of dotfiles! These are the configuration files that I u
 
 ## 🚀 Installation
 ```bash
+chmod +x install.sh
 ./install.sh
 ```
 
