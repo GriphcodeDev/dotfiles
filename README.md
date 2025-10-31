@@ -8,6 +8,13 @@ Welcome to my collection of dotfiles! These are the configuration files that I u
 
 ---
 
+## 👻 Font
+
+```
+https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/0xProto.zip
+```
+---
+
 ## ✨ Features
 
 - **Zsh + Oh My Zsh**: Custom Zsh configuration with themes and plugins.
@@ -47,4 +54,4 @@ cd dotfiles
 ### 🛠️ Work in progress!
 
 ### 🧑‍💻 Author
-Created by Your Griphcode. If you like my dotfiles, consider starring the repo! ⭐
+Created by Griphcode. If you like my dotfiles, consider starring the repo! ⭐
