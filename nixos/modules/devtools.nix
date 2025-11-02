@@ -50,6 +50,7 @@
     sleuthkit
     autopsy
     volatility3
+    hping
 
 
     #osint
