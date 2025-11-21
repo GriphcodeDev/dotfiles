@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+# Check if bluetooth is powered
+power=$(bluetoothctl show | grep "Powered" | awk '{print $2}')
+
+if [ "$power" = "yes" ]; then
+    # Check connected device
+    device=$(bluetoothctl info | grep "Name" | awk -F': ' '{print $2}')
+
+    if [ -n "$device" ]; then
+        echo " $device"
+    else
+        echo " On"
+    fi
+else
+    echo " Off"
+fi
