@@ -1,0 +1,62 @@
+command=/usr/share/i3blocks
+separator=true
+separator_block_width=18
+markup=pango
+
+[time]
+command=echo " $(date '+%a %d %b %H:%M')"
+interval=60
+color=#ebdbb2
+background=#282828
+
+[battery]
+command=batt=$(acpi -b | awk -F', ' '{print $2}'); echo " $batt"
+interval=30
+color=#b8bb26
+background=#282828
+
+[cpu]
+command=awk '/^cpu / {printf(" %d%%\n", ($2+$4)*100/($2+$4+$5))}' /proc/stat
+interval=5
+color=#fabd2f
+background=#282828
+
+
+[mem]
+command=free -h | awk '/Mem:/ { printf(" %s/%s\n", $3, $2) }'
+interval=10
+color=#83a598
+background=#282828
+
+[wifi]
+command=ssid=$(nmcli -t -f active,ssid dev wifi | grep '^yes' | cut -d: -f2); echo " $ssid"
+interval=10
+color=#d3869b
+background=#282828
+
+
+[bluetooth]
+command=~/.config/i3blocks/bluetooth
+interval=5
+color=#8ec07c
+background=#282828
+
+[system]
+command=echo " $(hostname) + 󰩟 $(hostname -i | awk '{print $1}')"
+interval=10
+color=#d3869b
+background=#282828
+
+
+[volume]
+command=echo " $(pamixer --get-volume-human)"
+interval=1
+signal=10
+color=#fe8019
+background=#282828
+
+[brightness]
+command=brightnessctl get | awk '{printf(" %d%%\n", int($1/255*100))}'
+interval=5
+color=#fb4934
+background=#282828
