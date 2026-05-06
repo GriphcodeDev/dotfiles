@@ -65,6 +65,8 @@ require("lazy").setup({
     },
   },
 
+  { "williamboman/mason.nvim" },
+  { "williamboman/mason-lspconfig.nvim" },
   { "neovim/nvim-lspconfig" },
 
   { "hrsh7th/nvim-cmp" },
@@ -113,6 +115,14 @@ telescope.load_extension("fzf")
 -- =====================
 -- LSP
 -- =====================
+require("mason").setup()
+require("mason-lspconfig").setup({
+  ensure_installed = {
+    "lua_ls", "pyright", "ts_ls", "bashls", "clangd", "gopls",
+  },
+  automatic_installation = true,
+})
+
 local lspconfig = require("lspconfig")
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
@@ -132,7 +142,7 @@ local on_attach = function(_, bufnr)
   map("]d", vim.diagnostic.goto_next, "Next Diagnostic")
 end
 
-local servers = { "pyright", "ts_ls", "bashls", "clangd", "nil_ls", "gopls" }
+local servers = { "pyright", "ts_ls", "bashls", "clangd", "gopls" }
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup({ capabilities = capabilities, on_attach = on_attach })
 end
