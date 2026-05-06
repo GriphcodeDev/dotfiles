@@ -13,7 +13,7 @@
 
 
 
-    #Lanuage tools
+    #Language tools
     gcc
     gnumake
     cmake
@@ -23,6 +23,21 @@
     yarn
     go
     rustup
+
+    #LSP servers (for neovim)
+    lua-language-server
+    pyright
+    nodePackages.typescript-language-server
+    nodePackages.bash-language-server
+    clang-tools
+    nil
+    gopls
+
+    #Formatters (for neovim/conform)
+    stylua
+    black
+    nodePackages.prettier
+    shfmt
 
 
     #Shell utils
